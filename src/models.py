@@ -27,6 +27,7 @@ class Post(Base):
     __tablename__ = 'post'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
+    relacion_comment = relationship('comment', backref='user', lazy=True)
     
 class Comment(Base):
     __tablename__ = 'comment'
